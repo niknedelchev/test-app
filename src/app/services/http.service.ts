@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginData } from '../contracts/login-data';
+import { LoginRequestPayload } from '../contracts/login-request-payload';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,8 +12,15 @@ export class HttpService {
 
   constructor(private httpClient: HttpClient) { }
 
-  login(loginData: LoginData) : Observable<any> {
-    return this.httpClient.post(this.loginUrl, loginData, {headers: this.jsonHeader})
+  login(loginRequestPayload: LoginRequestPayload): Observable<any> {
+    return this.httpClient.post(this.loginUrl, loginRequestPayload, { headers: this.jsonHeader })
   }
 
+ storeAuthToken(token: string) {
+    localStorage.setItem('jwt', token);
+  }
+
+  get authToken() {
+    return localStorage.getItem('jwt');
+  }
 }
