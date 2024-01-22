@@ -1,0 +1,63 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{ user.image }}" class="img-fluid rounded-start" />
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <span class="col">Username: </span>
+                            <span class="col">{{ user.username }}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span>Id: </span>
+                            <span>{{ user.id }}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span>Email: </span>
+                            <span>{{ user.email }}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span>Gender: </span>
+                            <span>{{ user.gender }}</span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-primary w-100 py-2 mt-3" (click)="getUserDetails()" *ngIf="!userDetails">
+                        Get user details
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-0" *ngIf="userDetails">
+            <div class="col-md-4">
+               <h1 class="h-100 p-5 rounded-3">User details</h1> 
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <span class="col">Maiden name: </span>
+                            <span class="col">{{ userDetails.maidenName }}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span>Age: </span>
+                            <span>{{ userDetails.age }}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span>Phone: </span>
+                            <span>{{ userDetails.phone}}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span>Gender: </span>
+                            <span>{{ user.gender }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

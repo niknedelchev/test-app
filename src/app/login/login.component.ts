@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { HttpService } from '../services/http.service';
+import { AuthService } from '../services/auth.service';
 import { LoginRequestPayload } from '../contracts/login-request-payload';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,11 +16,11 @@ export class LoginComponent implements OnInit {
   loginRequestPayload: LoginRequestPayload;
 
 
-  constructor(private httpService: HttpService) {
+  constructor(private authService: AuthService, private router: Router) {
     this.loginRequestPayload = { username: '', password: '' };
     console.log(this.loginRequestPayload);
   }
-  
+
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       username: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -35,12 +36,19 @@ export class LoginComponent implements OnInit {
         password: this.loginForm.get('password')!.value
       };
 
-      this.httpService.login(this.loginRequestPayload).subscribe({
-        next: (res) => this.httpService.storeAuthToken(res.token),
-        error: (e) => console.error(e),
-        complete: () => console.info('complete')
-      });
+      this.authService.login(this.loginRequestPayload).subscribe(
+        (isSucess : boolean) => {
+          if (isSucess) {
+            this.router.navigateByUrl('user');
+          } else {
+            alert('Unsuccessful login. Try again.');
+          }
+        }
+      )
+
     }
   }
+
+
 
 }
