@@ -1,0 +1,12 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.footer-list {
+  display: flex;
+  flex-direction: row;
+}
+
+a {
+  overflow: visible;
+}

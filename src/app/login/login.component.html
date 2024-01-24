@@ -1,24 +1,29 @@
-<div class="container mt-5">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <h1 class="h3 mb-3 fw-normal">Log in</h1>
+<div class="form-container">
+    <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <p>
+            <mat-form-field appearance="fill">
+              <mat-label>Username</mat-label>
+              <input matInput placeholder="Username" formControlName="username">
+              <mat-icon matSuffix>person</mat-icon>
+              <mat-error *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
+                <mat-error *ngIf="loginForm.get('username')?.errors?.['required']" class="error-message">Username is required.</mat-error>
+                <mat-error *ngIf="loginForm.get('username')?.errors?.['minlength']" class="error-message">Username is of minimum 3 chars.</mat-error>
+              </mat-error>
+              </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput placeholder="Email" formControlName="password">
+              <mat-icon matSuffix>password</mat-icon>
+              <mat-error *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                <mat-error *ngIf="loginForm.get('password')?.errors?.['required']" class="error-message">Passoword is required.</mat-error>
+                <mat-error *ngIf="loginForm.get('password')?.errors?.['minlength']" class="error-message">Passoword is of minimum 6 chars.</mat-error>
+              </mat-error>
+              </mat-form-field>
+          </p>
 
-        <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Username" formControlName="username" />
-            <label for="floatingInput">Username</label>
-            <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
-                <div *ngIf="loginForm.get('username')?.errors?.['required']" class="error-message">Username is required.</div>
-                <div *ngIf="loginForm.get('username')?.errors?.['minlength']" class="error-message">Username is of minimum 3 chars.</div>
-              </div>
-        </div>
-        <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password" />
-            <label for="floatingPassword">Password</label>
-            <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-                <div *ngIf="loginForm.get('password')?.errors?.['required']" class="error-message">Passoword is required.</div>
-                <div *ngIf="loginForm.get('password')?.errors?.['minlength']" class="error-message">Passoword is of minimum 6 chars.</div>
-              </div>
-        </div>
-
-        <button class="btn btn-primary w-100 py-2 mt-3" type="submit" [disabled]="loginForm.invalid">Log in</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Log in</button>
     </form>
+  
 </div>

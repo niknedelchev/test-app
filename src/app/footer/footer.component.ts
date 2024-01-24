@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-
+  links = [
+    { description: 'home', url: '' },
+    { description: 'about', url: '' },
+    { description: 'login', url: 'login' },
+    { description: 'products', url: '' }
+  ]
 }

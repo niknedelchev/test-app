@@ -1,3 +1,12 @@
-.btn {
-    width: 120px;
+
+.main-page-container {
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.button-wrap{
+    margin-top:10%;
+    display: flex;
+    justify-content: space-around;
 }
