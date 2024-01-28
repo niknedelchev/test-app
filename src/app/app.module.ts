@@ -20,6 +20,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
+import { ProductsComponent } from './products/products.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import {MatCardModule} from '@angular/material/card';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    ProductsComponent,
+    ProductDetailsComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
