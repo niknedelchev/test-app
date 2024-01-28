@@ -1,63 +1,54 @@
-<div class="container mt-5">
-    <div class="card">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="{{ user.image }}" class="img-fluid rounded-start" />
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <span class="col">Username: </span>
-                            <span class="col">{{ user.username }}</span>
-                        </li>
-                        <li class="list-group-item">
-                            <span>Id: </span>
-                            <span>{{ user.id }}</span>
-                        </li>
-                        <li class="list-group-item">
-                            <span>Email: </span>
-                            <span>{{ user.email }}</span>
-                        </li>
-                        <li class="list-group-item">
-                            <span>Gender: </span>
-                            <span>{{ user.gender }}</span>
-                        </li>
-                    </ul>
-                    <button class="btn btn-primary w-100 py-2 mt-3" (click)="getUserDetails()" *ngIf="!userDetails">
-                        Get user details
-                    </button>
-                </div>
-            </div>
-        </div>
+<div class="user-container">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title-group>
+                <mat-card-title>{{ user.firstName }} {{ user.lastName }}</mat-card-title>
+                <mat-card-subtitle>{{ user.username }}</mat-card-subtitle>
+                <img mat-card-lg-image src="{{ user.image }}">
+            </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-list role="list">
+                <mat-list-item role="listitem">
+                    <span>Id: </span>
+                    <span>{{ user.id }}</span>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <span>Email: </span>
+                    <span>{{ user.email }}</span>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <span>Gender: </span>
+                    <span>{{ user.gender }}</span>
+                </mat-list-item>
+            </mat-list>
+            <button mat-raised-button color="primary" (click)="getUserDetails()" *ngIf="!userDetails">Get
+                details</button>
+        </mat-card-content>
 
-        <div class="row g-0" *ngIf="userDetails">
-            <div class="col-md-4">
-               <h1 class="h-100 p-5 rounded-3">User details</h1> 
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <span class="col">Maiden name: </span>
-                            <span class="col">{{ userDetails.maidenName }}</span>
-                        </li>
-                        <li class="list-group-item">
-                            <span>Age: </span>
-                            <span>{{ userDetails.age }}</span>
-                        </li>
-                        <li class="list-group-item">
-                            <span>Phone: </span>
-                            <span>{{ userDetails.phone}}</span>
-                        </li>
-                        <li class="list-group-item">
-                            <span>Gender: </span>
-                            <span>{{ user.gender }}</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+        <mat-card-header *ngIf="userDetails">
+            <mat-card-subtitle>Additional information</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content *ngIf="userDetails">
+            <mat-list role="list">
+                <mat-list-item role="listitem">
+                    <span class="col">Maiden name: </span>
+                    <span class="col">{{ userDetails.maidenName }}</span>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <span>Age: </span>
+                    <span>{{ userDetails.age }}</span>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <span>Phone: </span>
+                    <span>{{ userDetails.phone}}</span>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <span>Gender: </span>
+                    <span>{{ user.gender }}</span>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+
+    </mat-card>
 </div>

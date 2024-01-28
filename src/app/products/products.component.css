@@ -1,0 +1,30 @@
+.products-container {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.product-card {
+    width: 300px;
+    height: 300px;
+    box-sizing: border-box;
+    margin: auto;
+    overflow: hidden;
+}
+
+mat-card.product-card mat-card-content {
+    margin-top: 20px;
+}
+
+.flex-group{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+    align-items: stretch;
+}
+

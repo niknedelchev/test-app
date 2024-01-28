@@ -1,14 +1,15 @@
-.container{
-    max-width: 500px;
+.form-container {
+    margin-top: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
-input.ng-invalid.ng-touched{
-    border: 1px solid;
-    border-color: var(--bs-red);
-    color: var(--bs-red);
+
+input.ng-invalid.ng-touched {
+    color: red;
 }
-    
-.error-message{
-    color: var(--bs-red);
-    margin-bottom: .5rem;
+
+.mat-mdc-form-field-error {
+    display: flex;
 }
