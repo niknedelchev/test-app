@@ -10,17 +10,6 @@ import { Product } from '../contracts/product';
 })
 export class AddProductComponent implements OnInit {
   fileList: File[] = [];
-
-  addFiles($event: Event) {
-    const target = event?.target;
-    const files = (target as HTMLInputElement).files;
-
-    if (files) {
-      this.fileList = Array.from(files);
-    }
-
-  }
-
   productForm!: FormGroup;
 
   constructor(private productService: ProductsService) { }
@@ -40,6 +29,15 @@ export class AddProductComponent implements OnInit {
     })
   }
 
+  addFiles($event: Event) {
+    const target = event?.target;
+    const files = (target as HTMLInputElement).files;
+
+    if (files) {
+      this.fileList = Array.from(files);
+    }
+
+  }
 
   addProduct() {
     let product: Product = this.productForm.value;

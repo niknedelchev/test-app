@@ -16,7 +16,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.isAuthenticated.subscribe((isAuth: boolean) => { console.log(isAuth); this.isAuthenticated = isAuth });
-    // this.isAuthenticated = this.authService.isAuthenticated;
   }
 
   goToLogin(): void {
@@ -27,10 +26,5 @@ export class HeaderComponent implements OnInit {
   logOut(): void {
     this.authService.logout();
   }
-
-  // isAuth(){
-  //   this.authService.updateAuthStatus();
-  //   return this.isAuthenticated;
-  // }
 
 }

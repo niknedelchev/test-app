@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import { By } from '@angular/platform-browser';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -10,8 +11,8 @@ describe('HomeComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [HomeComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -20,4 +21,22 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should contain header with expected text', () => {
+    //Arrange
+    let text = "Designed for engineers";
+
+    //Act
+    let h1: HTMLElement = fixture.debugElement.query(By.css('h1')).nativeElement;
+
+    //Assert
+    expect(h1.textContent).toBe(text);
+
+  })
+
+  it('should contain two buttons', () => {
+
+    let buttons = fixture.debugElement.queryAll(By.css('button'));
+    expect(buttons.length).toBe(2);
+  })
 });
